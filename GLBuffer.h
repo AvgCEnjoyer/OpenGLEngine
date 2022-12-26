@@ -11,19 +11,15 @@ public:
 	virtual ~GLBuffer() = default;
 
 
+	unsigned int freeSpace;
+	unsigned int bufferID;
+
 	unsigned int getBuffer();
 	unsigned int getNextSpace();
 
 	void push();
 	void pop();
 	float pushData(glm::vec3 data);
-
-
-
-private:
-
-	unsigned int freeSpace;
-	unsigned int bufferID;
 
 
 };

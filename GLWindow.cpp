@@ -49,7 +49,6 @@ void GLWindow::update() {
        
         if(*run != nullptr) run();
 
-
         glfwSwapBuffers(window);
         glfwPollEvents();
 
@@ -61,7 +60,7 @@ void GLWindow::update() {
 
 }
 
-void GLWindow::bindRunFunction(void (*func)(void)) { 
+void GLWindow::bindRunFunction(void (*func)()) {
     
     run = *func; 
 

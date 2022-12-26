@@ -15,10 +15,10 @@ public:
 	const char* title;
 	GLFWwindow* window;
 
-	void (*run)(void);
+	void (*run)();
 	void update();
 	void terminate();
-	void bindRunFunction(void (*func)(void));
+	void bindRunFunction(void (*func)());
 	
 private:
 
