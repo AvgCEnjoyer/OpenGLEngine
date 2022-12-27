@@ -10,7 +10,7 @@ Mesh::Mesh() {
 Mesh::Mesh(std::string file) {
 
 	std::vector<glm::vec3> meshData;
-	getMeshData(file);
+	getMeshData_Blender(file);
 }
 
 

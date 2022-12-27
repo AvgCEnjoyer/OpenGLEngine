@@ -17,6 +17,7 @@ public:
 
 	void (*run)();
 	void update();
+	void fpsBlock();
 	void terminate();
 	void bindRunFunction(void (*func)());
 	

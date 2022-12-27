@@ -41,22 +41,16 @@ GLFWwindow* GLWindow::create() {
 
 void GLWindow::update() { 
     
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+
+}
+
+void GLWindow::fpsBlock() {
+
     double lasttime = glfwGetTime();
-
-    while (!glfwWindowShouldClose(window)) {
-
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-       
-        if(*run != nullptr) run();
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-
-        while (glfwGetTime() < lasttime + 1.0 / 144) {}
-        lasttime += 1.0 / 144;
-
-    }
-    terminate();
+    while (glfwGetTime() < lasttime + 1.0 / 144) {}
+    lasttime += 1.0 / 144;
 
 }
 
