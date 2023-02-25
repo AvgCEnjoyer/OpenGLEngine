@@ -16,6 +16,6 @@ public:
 
 	std::vector<glm::vec3> meshData;
 
-	std::vector<glm::vec3> getMeshData_Blender(std::string filePath);
+	std::vector<glm::vec3> getMeshDataBlender(std::string filePath);
 
 };

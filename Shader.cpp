@@ -48,6 +48,7 @@ unsigned int createShader(const std::string& vertexShader, const std::string& fr
 	return program;
 }
 
+
 std::string getFileShader(std::string filePath) {
 
 	return loadFile(filePath);

@@ -10,11 +10,11 @@ Mesh::Mesh() {
 Mesh::Mesh(std::string file) {
 
 	std::vector<glm::vec3> meshData;
-	getMeshData_Blender(file);
+	getMeshDataBlender(file);
 }
 
 
-std::vector<glm::vec3> Mesh::getMeshData_Blender(std::string filePath) {
+std::vector<glm::vec3> Mesh::getMeshDataBlender(std::string filePath) {
 
 	std::vector<int> faces;
 

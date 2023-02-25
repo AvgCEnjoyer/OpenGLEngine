@@ -1,6 +1,7 @@
 #pragma once
 #include "GLBuffer.h"
 #include "Texture.h"
+#include "Mesh.h"
 
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -10,28 +11,31 @@ class InterfaceElement {
 
 public:
 
-	InterfaceElement(bool isClickable);
+	InterfaceElement(std::string text = "", Mesh objectMesh = Mesh(), bool isClickable = false);
+	
+
 	virtual ~InterfaceElement() = default;
 
-	void* clickFunction;
+	std::vector<glm::vec3> getVertices();
 
 	void setLabelText(std::string text = "", int size = 0);
-
 	void setClickFunction(void* func);
-	void onClick();
-
 	void setTexture(std::string filePath);
+
+	void update();
 
 
 private:
 
-	float width;
-	float height;
+	Mesh mesh;
+
+	bool clickable;
+	void* clickFunction;
+	
+	std::string labelText;
+	int fontSize;
 
 	Texture* texture;
 	float texCoords[];
 
 };
-
-void engineUIBootUp(GLBuffer buffer);
-void attachUIElement(GLBuffer buffer);
