@@ -1,15 +1,19 @@
 #include "Mesh.h"
 
 
+
+
 Mesh::Mesh() {
 
 	std::vector<glm::vec3> meshData;
+	std::vector<Entity> meshEntities;
 }
 
 
 Mesh::Mesh(std::string file) {
 
 	std::vector<glm::vec3> meshData;
+	std::vector<Entity> meshEntities;
 	getMeshDataBlender(file);
 }
 
@@ -21,6 +25,7 @@ std::vector<glm::vec3> Mesh::getMeshDataBlender(std::string filePath) {
 	std::string content;
 	std::vector<std::string> lines;
 
+	std::vector<Entity> entities;
 	std::ifstream fileStream(filePath, std::ios::in);
 
 
@@ -40,7 +45,10 @@ std::vector<glm::vec3> Mesh::getMeshDataBlender(std::string filePath) {
 		if (content[0] == 'v') {
 			if (content[1] == ' ') {
 				sscanf_s(content.c_str(), "v %f %f %f", &x, &y, &z);
+
 				meshData.push_back(glm::vec3(x, y, z));
+				meshEntities.back().vertices.push_back(glm::vec3(x, y, z));
+
 			}
 		}
 		if (content[0] == 'f') {
@@ -49,7 +57,15 @@ std::vector<glm::vec3> Mesh::getMeshDataBlender(std::string filePath) {
 				faces.push_back((int)x);
 				faces.push_back((int)y);
 				faces.push_back((int)z);
+
+				meshEntities.back().faces.push_back(x);
+				meshEntities.back().faces.push_back(y);
+				meshEntities.back().faces.push_back(z);
 			}
+		}
+		if (content[0] == 'o') {
+			Entity currentEntity;
+			meshEntities.push_back(currentEntity);
 		}
 	}
 

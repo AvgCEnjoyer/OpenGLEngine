@@ -3,7 +3,7 @@
 
 
 
-InterfaceElement::InterfaceElement(std::string text = "", Mesh objectMesh = Mesh(), bool isClickable = false) {
+InterfaceElement::InterfaceElement(std::string text, Mesh objectMesh, bool isClickable) {
 
 	clickable = isClickable;
 	mesh = objectMesh;
@@ -19,7 +19,7 @@ std::vector<glm::vec3> InterfaceElement::getVertices() {
 }
 
 
-void InterfaceElement::setLabelText(std::string text = "", int size = 0) {
+void InterfaceElement::setLabelText(std::string text, int size) {
 
 	labelText = text;
 	fontSize = size;

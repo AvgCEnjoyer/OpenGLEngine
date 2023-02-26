@@ -21,6 +21,7 @@ public:
 
 	glm::mat4 view;
 
+	void run(GLFWwindow& window);
 	glm::mat4x4 getViewMatrix();
 
 	//TODO
@@ -33,14 +34,6 @@ private:
 
 };
 
-/*
-float yaw = -90.0f;
-float pitch = 0.0f;
-float lastX = 0;
-float lastY = 0;
 
-bool firstMouse = false;
-
-glm::vec3 ncamTarget = glm::vec3(0.0f, 0.0f, -1.0f);
-
-void mouseCallback(GLFWwindow* window, float xPos, float yPos); */
+#define FUNCTIONS_H_INCLUDED
+void mouseCallback(GLFWwindow* window, double xPos, double yPos); 
