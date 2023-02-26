@@ -11,14 +11,13 @@ class InterfaceElement {
 
 public:
 
-	InterfaceElement(std::string text = "", Mesh objectMesh = Mesh(), bool isClickable = false);
-	
+	InterfaceElement(std::string text, Mesh objectMesh, bool isClickable);
 
 	virtual ~InterfaceElement() = default;
 
 	std::vector<glm::vec3> getVertices();
 
-	void setLabelText(std::string text = "", int size = 0);
+	void setLabelText(std::string text, int size);
 	void setClickFunction(void* func);
 	void setTexture(std::string filePath);
 
